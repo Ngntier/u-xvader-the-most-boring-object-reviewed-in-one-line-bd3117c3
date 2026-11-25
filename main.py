@@ -12,6 +12,8 @@ ENTRY = "This tea towel has dried a thousand dishes and is somehow always the da
 
 
 def main() -> None:
+    if not (1 <= len(ENTRY) <= 200):
+        raise ValueError(f"entry must be 1-200 characters, got {len(ENTRY)}")
     output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(output_dir, exist_ok=True)
     path = os.path.join(output_dir, "entry.txt")
